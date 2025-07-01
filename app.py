@@ -8,13 +8,22 @@ from utils.fertilizer import fertilizer_dic
 from markupsafe import Markup
 from fuzzywuzzy import process
 from google import genai
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Load the trained model
 crop_model = joblib.load('models/RandomForest.pkl')
 fertilizer_model = joblib.load('models/RandomForest.pkl')
 
 #weather api
-WEATHER_API_KEY = "34bd3fee32a8027642574e732728a7d7"
+import os
+
+WEATHER_API_KEY = os.environ.get("WEATHER_API_KEY")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
+
+client = genai.Client(api_key=GEMINI_API_KEY)
+
 WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 app = Flask(__name__)
@@ -186,8 +195,7 @@ def chat():
 
 
 # Initialize the Gemini client with your API key
-client = genai.Client(api_key="AIzaSyA3488jY1IFUZowigfFtQ9m9zRlX-3wTmc")
-
+client = genai.Client(api_key=GEMINI_API_KEY)
 import re
 
 def clean_response(text):
