@@ -18,65 +18,72 @@
     </div>
 </section>
 
-<!-- Fertilizer Form -->
-<section class="py-5">
-    <div class="container py-md-4">
-        <h3 class="heading mb-sm-5 mb-4 text-center">Fertilizer Recommendation System</h3>
-        <form id="fertilizerForm" class="row g-3">
-            <div class="col-md-6">
-                <label for="cropname" class="form-label">Crop Type</label>
-                <select id="cropname" name="cropname" class="form-select" required>
-                    <option selected>Choose...</option>
-                    <option value="rice">Rice</option>
-                    <option value="maize">Maize</option>
-                    <option value="chickpea">Chickpea</option>
-                    <option value="pigeonpeas">pigeonpeas</option>
-                    <option value="kidneybeans">Kidneybeans</option>
-                    <option value="mothbeans">mothbeans</option>
-                    <option value="mungbean">mungbean</option>
-                    <option value="blackgram">blackgram</option>
-                    <option value="lentil">lentil</option>
-                    <option value="pomegranate">pomegranate</option>
-                    <option value="banana">banana</option>
-                    <option value="mango">mango</option>
-                    <option value="grapes">grapes</option>
-                    <option value="jute">jute</option>
-                    <option value="papaya">papaya</option>
-                    <option value="cotton">cotton</option>
-                    <option value="coffee">coffee</option>
-                    <option value="muskmelon">muskmelon</option>
-                    <option value="orange">orange</option>
-                    <option value="watermelon">watermelon</option>
-                    <option value="apple">apple</option>
-
-
-                </select>
-            </div>
-            <div class="col-md-4">
-                <label for="nitrogen" class="form-label">Nitrogen (N)</label>
-                <input type="number" 
-                step="0.01"
-                id="nitrogen" name="nitrogen" class="form-control" required>
-            </div>
-            <div class="col-md-4">
-                <label for="phosphorus" class="form-label">Phosphorus (P)</label>
-                <input type="number" step="0.01" id="phosphorus" name="phosphorous" class="form-control" required>
-            </div>
-            <div class="col-md-4">
-                <label for="potassium" class="form-label">Potassium (K)</label>
-                <input type="number" step="0.01"  id="potassium" name="pottasium" class="form-control" required>
-            </div>
-            <div class="col-12">
-                <label for="phValue" class="form-label">Soil pH Value</label>
-                <input type="number" step="0.01" id="phValue" name="ph_value" class="form-control" required>
-            </div>
-            <div class="col-12 text-center mt-4">
-                <button type="submit" class="btn btn-primary">Get Recommendation</button>
-            </div>
-        </form>
+<!-- Fertilizer Recommendation Form -->
+<section class="py-5 bg-light">
+    <div class="container py-4">
+      <h3 class="heading text-center mb-5">Fertilizer Recommendation System</h3>
+      
+      <form id="fertilizerForm" method="POST" action="/get-fertilizer-recommendation">
+        <div class="row g-4">
+  
+          <!-- Crop Type -->
+          <div class="col-md-6 offset-md-3">
+            <label for="cropname" class="form-label">Crop Type</label>
+            <select id="cropname" name="cropname" class="form-select" required>
+              <option value="" disabled selected>Choose a crop...</option>
+              <option value="rice">Rice</option>
+              <option value="maize">Maize</option>
+              <option value="chickpea">Chickpea</option>
+              <option value="pigeonpeas">Pigeon Peas</option>
+              <option value="kidneybeans">Kidney Beans</option>
+              <option value="mothbeans">Moth Beans</option>
+              <option value="mungbean">Mung Bean</option>
+              <option value="blackgram">Black Gram</option>
+              <option value="lentil">Lentil</option>
+              <option value="pomegranate">Pomegranate</option>
+              <option value="banana">Banana</option>
+              <option value="mango">Mango</option>
+              <option value="grapes">Grapes</option>
+              <option value="jute">Jute</option>
+              <option value="papaya">Papaya</option>
+              <option value="cotton">Cotton</option>
+              <option value="coffee">Coffee</option>
+              <option value="muskmelon">Muskmelon</option>
+              <option value="orange">Orange</option>
+              <option value="watermelon">Watermelon</option>
+              <option value="apple">Apple</option>
+            </select>
+          </div>
+  
+          <!-- NPK Inputs -->
+          <div class="col-md-4">
+            <label for="nitrogen" class="form-label">Nitrogen (N)</label>
+            <input type="number" min="0" step="0.01" id="nitrogen" name="nitrogen" class="form-control"  required>
+          </div>
+          <div class="col-md-4">
+            <label for="phosphorous" class="form-label">Phosphorus (P)</label>
+            <input type="number" min="0" step="0.01" id="phosphorous" name="phosphorous" class="form-control"  required>
+          </div>
+          <div class="col-md-4">
+            <label for="pottasium" class="form-label">Potassium (K)</label>
+            <input type="number" min="0" step="0.01" id="pottasium" name="pottasium" class="form-control" required>
+          </div>
+  
+          <!-- pH Value -->
+          <div class="col-md-6 offset-md-3">
+            <label for="phValue" class="form-label">Soil pH Value</label>
+            <input type="number" step="0.01" min="3" max="10" id="phValue" name="ph_value" class="form-control" required>
+          </div>
+  
+          <!-- Submit Button -->
+          <div class="col-12 text-center mt-4">
+            <button type="submit" class="btn btn-primary px-5 py-2">Get Recommendation</button>
+          </div>
+        </div>
+      </form>
     </div>
-</section>
-
+  </section>
+  
 <!-- Recommendation Details -->
 <section class="py-5 bg-light">
     <div class="container">
